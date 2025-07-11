@@ -1,36 +1,38 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import styles from './Game.module.css';
+import { useState } from "react";
+import styles from "./Game.module.css";
 
 export default function GamePage() {
-  const [fields, setFields] = useState<string[]>(Array(16).fill('e')); 
+  const [state, setState] = useState<string[]>(Array(16).fill(""));
 
- const handleClick = (index: number) => {
-  setFields((prev) => {
-    const updated = [...prev];
-    const current = updated[index];
+  const updateStage = (index: number, stage: string) => {
+    setState((prev) => {
+      const updated = [...prev];
+      updated[index] = stage;
+      return updated;
+    });
+  };
 
-    if (current === 'e') updated[index] = 't';
-    else if (current === 't') updated[index] = 'f';
-    else if (current === 'f') updated[index] = 'b';
-    else if (current === 'b') updated[index] = 'ç';
-    else if (current === 'ç') updated[index] = 'k';
-    else if (current === 'k') updated[index] = 'e';
+  const handleClick = (index: number) => {
+    setState((prev) => {
+      const updated = [...prev];
+      if (updated[index] === "") {
+        updated[index] = "t";
 
-    return updated;
-  });
-};
-
-  
-
+        setTimeout(() => updateStage(index, "f"), 2000);
+        setTimeout(() => updateStage(index, "b"), 4000);
+        setTimeout(() => updateStage(index, "ç"), 6000);
+        setTimeout(() => updateStage(index, "k"), 10000);
+      }
+      return updated;
+    });
+  };
 
   return (
     <div className={styles.container}>
-      
-
       <div className={styles.grid}>
-        {fields.map((val, index) => (
+        {state.map((val, index) => (
           <button
             key={index}
             className={styles.card}
