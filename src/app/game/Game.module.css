@@ -1,0 +1,26 @@
+.container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  gap: 15px;
+  justify-content: center;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  background-color: #d2b48c;
+  border: 2px solid #4a2c0a;
+  border-radius: 10px;
+  
+  cursor: pointer;
+}
