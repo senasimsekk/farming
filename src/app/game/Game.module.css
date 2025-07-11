@@ -1,3 +1,23 @@
+.topBar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.storeBtn {
+  background: #fffbe6;
+  color: #4a2c0a;
+  border: 2px solid #4a2c0a;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.storeBtn:hover {
+  background: #ffe4a1;
+}
 .container {
   text-align: center;
   margin-top: 40px;

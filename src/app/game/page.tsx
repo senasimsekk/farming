@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./Game.module.css";
 
 export default function GamePage() {
   const [state, setState] = useState<string[]>(Array(16).fill(""));
   const [balance, setBalance] = useState<number>(100);
+  const router = useRouter();
 
 
 
@@ -53,6 +55,9 @@ export default function GamePage() {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Balance: ${balance}</h1>
+      <div className={styles.topBar}>
+        <button className={styles.storeBtn} onClick={() => router.push("/store")}>Store</button>
+      </div>
       <div className={styles.grid}>
         {state.map((val, index) => (
           <button
