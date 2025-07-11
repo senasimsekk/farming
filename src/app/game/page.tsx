@@ -13,6 +13,7 @@ export default function GamePage() {
       return updated;
     });
   };
+  
 
   const handleClick = (index: number) => {
     setState((prev) => {
